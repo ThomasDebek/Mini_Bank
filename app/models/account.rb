@@ -8,7 +8,7 @@ class Account < ActiveRecord::Base
   before_create :set_number
 
   def to_s                                                # konto zaraz bedzie mialo nr
-     "[#{number}] #{balance} zl"                                                         # i chcemy wysietlic stan konta
+     "[#{number}] #{balance} zl"                          # i chcemy wysietlic stan konta
   end
 
   protected                                               # chce zeby model sam wygenerowal sobie nr konta
