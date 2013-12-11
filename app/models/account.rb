@@ -1,5 +1,6 @@
 class Account < ActiveRecord::Base
   belongs_to :client
+  has_many :transactions
 
                                                           # saldo musi byc wartoscia numeryczną
   validates :balance, numericality: { only_integer: true} # i tylko typ integer
