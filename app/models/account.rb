@@ -15,11 +15,7 @@ class Account < ActiveRecord::Base
   def update_balance!                                     # musimy wziąść wszystkie transakcjie z tego konta
      sum = transactions.map { |t| t.amount }.sum          # zmapuje sobie to na kwote danej transakcji i podstawie do zmiennej sum
      update_attribute(:balance, sum)                      # i zaktualizuje ten model i w polu balance wpisuje sume
-
-
   end
-
-
 
   protected                                               # chce zeby model sam wygenerowal sobie nr konta
   def set_number                                          # i wylosowal liczbe z tego zakresu

@@ -31,4 +31,12 @@ class AccountTest < ActiveSupport::TestCase
     assert @account.errors[:balance].empty?             # spr. czy nie ma bledów i powinno grac
   end
 
+  test "update_balance" do
+    @account.transactions.create(amount: 100, descr: 'wplata 1')  # dodaje transakcjie na naszym koncie
+    @account.transactions.create(amount: 250, descr: 'wplata 2')
+    @account.transactions.create(amount: -50, descr: 'wplata 2')
+    @account.reload                                               # laduje jeszcze raz obiekt konta
+    assert_equal 300, @account.balance                            # suma operacji powinna wynosic 350zl
+  end
+
 end
