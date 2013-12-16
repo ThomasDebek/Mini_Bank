@@ -8,7 +8,6 @@ class AccountsController < ApplicationController
   end
 
   def show
-    @account = @client.accounts_find(params[:id])
   end
 
   def create                                    # Wykorzynik po to ze jak cos nie zadziala
