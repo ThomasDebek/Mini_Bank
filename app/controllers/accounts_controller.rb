@@ -12,13 +12,13 @@ class AccountsController < ApplicationController
   end
 
   def create                                    # Wykorzynik po to ze jak cos nie zadziala
-    @client.accounts.create!                    # dostaniemy wyjątek
+    @client.accounts.create!                    # dostaniemy wyjątek i bede wiedzial ze cos nie gra
     redirect_to client_accounts_path(@client)
   end
 
   def destroy
-    @account.destroy
-    redirect_to client_accounts_path(@client)
+    @account.destroy                            # po usunieciu kont klienta
+    redirect_to client_accounts_path(@client)   # przekierowuje sie do listy klientow
   end
 
   private

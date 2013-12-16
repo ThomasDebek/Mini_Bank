@@ -29,7 +29,10 @@
       <a class="brand" href="#"><%= yield :client %></a>
 
       <div class="nav-collapse collapse">
-        <% if @client && !@client.new_record? %>
+        <% if @client && !@client.new_record? %>     //kod bedzie sie pokazywal tylko wtedy gdy mam ustawioną zmienną klinet
+            <ul class="nav">
+              <li><%= link_to 'Konta', client_accounts_path(@client)  %></li>
+            </ul>
         <% end %>
       </div>
       <!--/.nav-collapse -->
