@@ -8,6 +8,7 @@ class AccountsController < ApplicationController
   end
 
   def show
+    @transactions = @account.transactions.order('id desc')
   end
 
   def create                                    # Wykorzynik po to ze jak cos nie zadziala
