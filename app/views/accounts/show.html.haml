@@ -10,6 +10,6 @@
     %th Opis
   - @transactions.each do |transaction|
     %tr
-      %td= transaction.created_at
+      %td= I18n.l transaction.created_at
       %td= transaction.amount
       %td= transaction.descr
