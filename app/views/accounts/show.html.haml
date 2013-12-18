@@ -11,5 +11,5 @@
   - @transactions.each do |transaction|
     %tr
       %td= I18n.l transaction.created_at
-      %td= transaction.amount
+      %td= money(transaction.amount)
       %td= transaction.descr
