@@ -4,7 +4,7 @@ class TransactionsController < ApplicationController
 
 
   def index
-    @transactions = @account.transactions.order('id desc').page(params[:page]).per(4)
+    @transactions = @account.transactions.order('id desc').page(params[:page])
   end
 
   def new
