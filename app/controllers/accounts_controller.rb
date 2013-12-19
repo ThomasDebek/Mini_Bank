@@ -7,8 +7,7 @@ class AccountsController < ApplicationController
     @accounts = @client.accounts.order('id')
   end
 
-  def show
-    @transactions = @account.transactions.order('id desc')
+  def show                                      # zostaje bo musze miec podgląd na konto
   end
 
   def create                                    # Wykorzynik po to ze jak cos nie zadziala

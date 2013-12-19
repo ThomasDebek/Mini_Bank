@@ -2,6 +2,11 @@ class TransactionsController < ApplicationController
 
   before_filter :find_account
 
+
+  def index
+    @transactions = @account.transactions.order('id desc')
+  end
+
   def new
     @transaction = @account.transactions.new
   end
