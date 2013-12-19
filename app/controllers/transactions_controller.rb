@@ -15,7 +15,7 @@ class TransactionsController < ApplicationController
     @transaction = @account.transactions.new(transaction_params)
     if @transaction.save
       msg = 'Transakcja przebiegla pomyślnie'
-      redirect_to client_account_path(@client, @account), notice: msg
+      redirect_to account_transactions_path(@account), notice: msg
 
     else
       render action: 'new'
