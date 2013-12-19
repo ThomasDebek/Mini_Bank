@@ -4,7 +4,7 @@
   # GET /clients
   # GET /clients.json
   def index
-    @clients = Client.all
+    @clients = Client.all.page(params[:page])
   end
 
   # GET /clients/1
