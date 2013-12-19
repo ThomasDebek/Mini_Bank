@@ -10,3 +10,5 @@
       %td= I18n.l transaction.created_at
       %td= money(transaction.amount)
       %td= transaction.descr
+
+%p= paginate @transactions
