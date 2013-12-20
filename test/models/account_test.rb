@@ -4,7 +4,10 @@ class AccountTest < ActiveSupport::TestCase
   def setup                                        # przed kazdym testem jest wywoływana  metoda setup
      @client = Client.create!(                     # wykrzynik po to ze odrazu wywali wyjątek ze cos poszlo nie tak
          name: 'Jan', surname:'Nowak',
-         email: 'jan@wp.pl', phone: '234-234-234')
+         email: 'jan@wp.pl', phone: '234-234-234',
+         password: '123123',
+         password_confirmation: '123123')
+
          @account = @client.accounts.create!       # redukujemy w ten sposób kod
   end
 
