@@ -1,7 +1,7 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
-  skip_before_filter :auth!, only: [:new, :create]
- # before_filter :deny, except: [:new, :create]
+  skip_before_filter :auth!, only: [:new, :create]      # opuszczamy formularz logowania sie i tworzymy nowego klienta
+  # before_filter :deny, except: [:new, :create]         # a ty wywolamy filter we wszystkich metodach oprócz new, create
 
   # GET /clients
   # GET /clients.json
@@ -75,9 +75,9 @@ class ClientsController < ApplicationController
                                    :password, :password_confirmation)
   end
 
- # def deny
- #   raise 'Ups!!!'
- # end
+  # def deny                   # po prostu żucam wyjątkiem
+  #  raise 'Ups!!!'
+  # end
 
 
 end
