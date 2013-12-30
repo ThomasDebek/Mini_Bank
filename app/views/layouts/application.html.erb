@@ -44,7 +44,12 @@
 </div>
 
 <div class="container">
-  <%= yield %>
+  <% if notice.present? %><p class="alert alert-success"><%= notice %></p>
+     <% end %>
+  <% if alert.present? %><p class="alert alert-error"><%= alert %></p>
+  <% end %>
+    <%= yield %>
 </div>
+
 </body>
 </html>

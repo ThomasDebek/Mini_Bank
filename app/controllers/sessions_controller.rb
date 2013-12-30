@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       session[:client_id] = client.id
       redirect_to client_accounts_path(client), notice: 'Witamy'
     else
-      flash.now.alert  'Niestety'
+      flash.now.alert = 'Niestety'
       render action: 'new'
     end
   end
