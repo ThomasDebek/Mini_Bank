@@ -1,6 +1,7 @@
 MiniBank::Application.routes.draw do
   root to: 'sessions#new'
   resources :sessions
+
   get 'login' => 'sessions#new', :as => 'login'
   get 'logout' => 'sessions#destroy', :as => 'logout'
 
@@ -8,9 +9,12 @@ MiniBank::Application.routes.draw do
     resources :accounts
   end
 
+
   resources :accounts do
     resources :transactions
   end
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

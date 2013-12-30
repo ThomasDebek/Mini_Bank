@@ -26,12 +26,15 @@
         <span class="icon-bar"></span>
       </button>
       <a class="brand" href="/">MinibankApp</a>
-      <a class="brand" href="#"><%= yield :client %></a>
+      <% if current_client%>
+          <a class="brand" href="#"><%= yield :client %></a>
+      <% end %>
 
       <div class="nav-collapse collapse">
         <% if @client && !@client.new_record? %>
             <ul class="nav">
               <li><%= link_to 'Konta', client_accounts_path(@client)  %></li>
+              <li><%= link_to 'Wyloguj', logout_path %></li>
             </ul>
         <% end %>
       </div>

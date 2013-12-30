@@ -1,5 +1,7 @@
- class ClientsController < ApplicationController
+class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :auth!, only: [:new, :create]
+ # before_filter :deny, except: [:new, :create]
 
   # GET /clients
   # GET /clients.json
@@ -62,14 +64,20 @@
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_client
-      @client = Client.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_client
+    @client = Client.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def client_params
-      params.require(:client).permit(:name, :surname, :email, :phone,
-                     :password, :password_confirmation)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def client_params
+    params.require(:client).permit(:name, :surname, :email, :phone,
+                                   :password, :password_confirmation)
+  end
+
+ # def deny
+ #   raise 'Ups!!!'
+ # end
+
+
 end
