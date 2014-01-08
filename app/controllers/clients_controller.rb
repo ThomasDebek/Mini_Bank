@@ -26,16 +26,13 @@ class ClientsController < ApplicationController
   # POST /clients
   # POST /clients.json
   def create
-    @client = Client.new(client_params)
+    @client = Client.new(client_params)                      # Tworzymy nowy obiekt klienta
 
-    respond_to do |format|
-      if @client.save
-        format.html { redirect_to @client, notice: 'Client was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @client }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @client.errors, status: :unprocessable_entity }
-      end
+    if @client.save                                          # jeżeli ten sie zapisze
+      ClientMailer.welcome(@client).deliver                  # tworzymy email i wysylamy go
+      redirect_to login_path, notice: 'Proszę sie zalogowac' # i przekierwoujemy na strone logowania
+    else
+      render action: 'new'
     end
   end
 
